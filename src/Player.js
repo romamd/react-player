@@ -19,6 +19,9 @@ export default class Player extends Component {
     this.mounted = true
     this.player.load(this.props.url)
   }
+  componentDidCatch(error, info) {
+    this.props.onError(error, info);
+  }
   componentWillUnmount () {
     if (this.isReady) {
       this.player.stop()

@@ -25,6 +25,9 @@ export default class ReactPlayer extends Component {
   componentDidMount () {
     this.progress()
   }
+  componentDidCatch(error, info) {
+    this.props.onError(error, info);
+  }
   componentWillUnmount () {
     clearTimeout(this.progressTimeout)
   }
